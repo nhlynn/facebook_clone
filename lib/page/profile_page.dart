@@ -1,3 +1,4 @@
+import '../chat/presentation/view/chat_screen.dart';
 import '../page/create_story_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -94,7 +95,9 @@ class ProfilePage extends ConsumerWidget {
           (userId == myUid || userId == null)
               ? Container()
               : OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(ChatScreen.routeName,extra: userId);
+                  },
                   child: const Text('Send Message'),
                 ),
           const SizedBox(height: 20),

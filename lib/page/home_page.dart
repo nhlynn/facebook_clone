@@ -1,3 +1,6 @@
+import 'package:go_router/go_router.dart';
+
+import '../chat/presentation/view/chat_room_screen.dart';
 import '../providers/controller_provider.dart';
 import '../utils/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -77,7 +80,12 @@ class _HomePageState extends ConsumerState<HomePage>
         icon: FontAwesomeIcons.magnifyingGlass,
       );
 
-  Widget _buildMessengerWidget() => const RoundIconButtonWidget(
-        icon: FontAwesomeIcons.facebookMessenger,
+  Widget _buildMessengerWidget() => InkWell(
+        onTap: () {
+          context.push(ChatRoomScreen.routeName);
+        },
+        child: const RoundIconButtonWidget(
+          icon: FontAwesomeIcons.facebookMessenger,
+        ),
       );
 }

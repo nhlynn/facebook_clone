@@ -1,3 +1,5 @@
+import '../chat/presentation/view/chat_room_screen.dart';
+import '../chat/presentation/view/chat_screen.dart';
 import '../models/stroy.dart';
 import '../page/comment_page.dart';
 import '../page/create_account_page.dart';
@@ -49,6 +51,17 @@ final routeConfig = GoRouter(routes: [
         final stories = routeState.extra as List<Story>;
         return StoryDetailPage(
           stories: stories,
+        );
+      }),
+  GoRoute(
+      path: ChatRoomScreen.routeName,
+      builder: (context, routeState) => const ChatRoomScreen()),
+  GoRoute(
+      path: ChatScreen.routeName,
+      builder: (context, routeState) {
+        final userId = routeState.extra as String;
+        return ChatScreen(
+          userId: userId,
         );
       }),
 ]);
